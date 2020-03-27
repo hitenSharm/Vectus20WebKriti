@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+
+<head>
+    <style media="screen">
+        @import url("https://fonts.googleapis.com/css?family=Dosis:400,700");
+
+        :root {
+            --main-white-color: #f2f2f2;
+            --main-black-color: black;
+            --main-purple-color: #b9cfd4
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box
+        }
+
+        body {
+            font: 16px/1.5 "Dosis", sans-serif
+        }
+
+        .menu-wrap {
+            position: fixed;
+            top: 0;
+            right: 0;
+            z-index: 1
+        }
+
+        .menu-wrap .toggler {
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 2;
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            opacity: 0
+        }
+
+        .menu-wrap .hamburger {
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 1;
+            width: 60px;
+            height: 60px;
+            padding: 1rem;
+            background: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+
+        .menu-wrap .hamburger>div {
+            position: relative;
+            flex: none;
+            width: 100%;
+            height: 2px;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s ease
+        }
+
+        .menu-wrap .hamburger>div::before,
+        .menu-wrap .hamburger>div::after {
+            content: '';
+            position: absolute;
+            z-index: 1;
+            top: -10px;
+            width: 100%;
+            height: 2px;
+            background: inherit
+        }
+
+        .menu-wrap .hamburger>div::after {
+            top: 10px
+        }
+
+        .menu-wrap .toggler:checked+.hamburger>div {
+            transform: rotate(135deg)
+        }
+
+        .menu-wrap .toggler:checked+.hamburger>div:before,
+        .menu-wrap .toggler:checked+.hamburger>div:after {
+            top: 0;
+            transform: rotate(90deg)
+        }
+
+        .menu-wrap .toggler:checked:hover+.hamburger>div {
+            transform: rotate(225deg)
+        }
+
+        .menu-wrap .toggler:checked~.menu {
+            visibility: visible
+        }
+
+        .menu-wrap .toggler:checked~.menu>div {
+            transform: scale(1);
+            transition-duration: var(--menu-speed)
+        }
+
+        .menu-wrap .toggler:checked~.menu>div>div {
+            opacity: 1;
+            transition: opacity 0.4s ease 0.4s
+        }
+
+        .menu-wrap .menu {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            visibility: hidden;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+
+        .menu-wrap .menu>div {
+            background: rgba(24, 39, 51, .85);
+            border-radius: 50%;
+            width: 200vw;
+            height: 200vw;
+            display: flex;
+            flex: none;
+            align-items: center;
+            justify-content: center;
+            transform: scale(0);
+            transition: all 0.4s ease
+        }
+
+        .menu-wrap .menu>div>div {
+            text-align: center;
+            max-width: 90vw;
+            max-height: 100vh;
+            opacity: 0;
+            transition: opacity 0.4s ease
+        }
+
+        .menu-wrap .menu>div>div>ul>li {
+            list-style: none;
+            color: #fff;
+            font-size: 1.5rem;
+            padding: 1rem
+        }
+
+        .navbt {
+            color: inherit;
+            text-decoration: none;
+            transition: all 0.7s;
+            font-size: 40px
+        }
+
+        .navbt:hover {
+            font-size: larger;
+            font-weight: 700
+        }
+
+        #Register {
+            margin-top: 75px;
+            border-radius: 15px;
+            background: rgb(255, 255, 255);
+            background: linear-gradient(113deg, rgba(255, 255, 255, 1) 0%, rgba(34, 117, 106, 1) 0%, rgba(0, 37, 43, 1) 100%);
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            outline: none
+        }
+
+        #Register:hover {
+            cursor: grab
+        }
+
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh
+        }
+
+        .wrapper>* {
+            padding: 20px
+        }
+
+        .page-main {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex-grow: 1;
+            min-height: 350px;
+            background: var(--main-purple-color) url(https://i.pinimg.com/originals/8a/84/f6/8a84f6081395d2337e77552ae2998041.jpg) no-repeat center / cover;
+            background-blend-mode: luminosity;
+            color: var(--main-white-color)
+        }
+
+        .page-main div {
+            max-width: 500px
+        }
+
+        h1 {
+            font-size: 50px;
+            font-style: bold;
+            margin-bottom: 20px
+        }
+
+        .page-main p+p {
+            margin-top: 10px
+        }
+
+        @media screen and (min-width:768px) {
+            body {
+                font-size: 18px
+            }
+
+            .page-main {
+                padding-left: 90px
+            }
+        }
+
+        .page-main {
+            opacity: 0
+        }
+
+        .page-main .text-wrapper {
+            overflow: hidden
+        }
+
+        .page-main .text-wrapper+.text-wrapper {
+            margin-top: 10px
+        }
+
+        .page-main .text-wrapper * {
+            transform: translateY(120%)
+        }
+
+        .page-main .p-wrapper * {
+            transform: translateY(-120%)
+        }
+
+        .loaded .page-main {
+            animation: fadeIn 1s ease-in 0.7s forwards
+        }
+
+        .loaded .page-main .text-wrapper * {
+            animation: slideIn 0.6s cubic-bezier(.54, .46, .54, .94) 2s forwards
+        }
+
+        @keyframes fadeIn {
+            60% {
+                opacity: 0
+            }
+
+            100% {
+                opacity: 1
+            }
+        }
+
+        @keyframes scaleIn {
+            100% {
+                transform: scaleX(1)
+            }
+        }
+
+        @keyframes slideIn {
+            100% {
+                transform: translateY(0)
+            }
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 100px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, .4)
+        }
+
+        .modal-content {
+            background: rgb(255, 255, 255);
+            background: linear-gradient(113deg, rgba(255, 255, 255, 1) 0%, rgba(34, 117, 106, 1) 0%, rgba(0, 37, 43, 1) 100%);
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 30%
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: 700
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer
+        }
+
+        .Yes {
+            width: 50%;
+            border: none;
+            color: white;
+            background-color: green;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            font-family: 'Dosis', sans-serif
+        }
+
+        .No {
+            width: 50%;
+            border: none;
+            color: white;
+            background-color: red;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            font-family: 'Dosis', sans-serif
+        }
+
+        .confirm {
+            color: white
+        }
+
+        @media (max-width:1024px) {
+            h1 {
+                font-size: 75px;
+                font-family: 'Dosis', sans-serif
+            }
+
+            p {
+                font-size: 40px;
+                font-family: 'Dosis', sans-serif
+            }
+
+            #Register {
+                font-size: 40px;
+                font-family: 'Dosis', sans-serif
+            }
+
+            .modal-content {
+                position: absolute;
+                top: 35%;
+                left: 34%;
+                font-family: 'Dosis', sans-serif
+            }
+
+            .confirm {
+                font-size: 35px
+            }
+
+            .Yes {
+                font-size: 25px;
+                width: 100%
+            }
+
+            .No {
+                font-size: 25px;
+                width: 100%
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="menu-wrap">
+        <input type="checkbox" class="toggler">
+        <div class="hamburger">
+            <div></div>
+        </div>
+        <div class="menu">
+            <div>
+                <div>
+                    <ul>
+                        <li><a href="home" class="navbt">Home</a></li>
+                        <li><a href="about" class="navbt">About the fest</a></li>
+                        <li><a href="events" class="navbt">Events</a></li>
+                        <li><a href="sponsor" class="navbt">sponsors</a></li>
+                        <li><a href="register" class="navbt">Login/Register</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wrapper">
+        <main class="page-main">
+            <div>
+                <div class="text-wrapper">
+                    <h1>Hackathon</h1>
+                </div>
+                <div class="text-wrapper p-wrapper">
+                    <p>Think you got what it takes? Think you are the best? Outdo everyone for the ultimate bragging
+                        rights</p>
+                </div>
+                <div class="regbut"><button id="Register">Register Now!</button></div>
+            </div>
+        </main>
+    </div>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p class="confirm">Are you logged in?<br><br></p>
+            <form action="regInHack" method="POST"> <button class="Yes">Hell Yes!</button></form>
+            <br>
+            <br>
+            <button onclick="LoggedFalse()" class="No">I forgot</button>
+        </div>
+    </div>
+    <script type="text/javascript">
+        window.addEventListener("load", () => {
+            document.querySelector("body").classList.add("loaded");
+        });
+        var modal = document.getElementById("myModal");
+        var btn = document.getElementById("Register");
+        var span = document.getElementsByClassName("close")[0];
+        btn.onclick = function () {
+            modal.style.display = "block";
+        }
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        function LoggedTrue() {
+            //window.location.href;hitenstuff
+        }
+
+        function LoggedFalse() {
+            window.location.href = "login"
+        }
+    </script>
+</body>
+
+</html>

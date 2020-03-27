@@ -1,0 +1,11 @@
+
+
+
+@font-face {
+    font-family: 'cyberpunkregular';
+    src: url('cyberpunk-webfont.woff2') format('woff2'),
+         url('cyberpunk-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}

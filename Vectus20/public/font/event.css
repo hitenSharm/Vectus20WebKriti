@@ -1,0 +1,22 @@
+@font-face {
+    font-family: 'big_spaceregular';
+    src: url('bigspace-rpkx-webfont.woff2') format('woff2'),
+         url('bigspace-rpkx-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'azonixregular';
+    src: url('azonix-1vb0-webfont.woff2') format('woff2'),
+         url('azonix-1vb0-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'arcadeclassicregular';
+    src: url('arcadeclassic-webfont.woff2') format('woff2'),
+         url('arcadeclassic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Trade+Winds&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <title>Event Page</title>
+    <style type="text/css">
+body{margin:0;background-color:#000}.vectus{color:#fff;font-family:'Trade Winds';font-weight:700 display:inline-block;position:fixed}.menu-wrap{position:fixed;top:0;right:0;z-index:1}.menu-wrap .toggler{position:absolute;top:0;right:0;z-index:2;cursor:pointer;width:50px;height:50px;opacity:0}.menu-wrap .hamburger{position:absolute;top:0;right:0;z-index:1;width:60px;height:60px;padding:1rem;background:var(--primary-color);display:flex;align-items:center;justify-content:center}.menu-wrap .hamburger>div{position:relative;flex:none;width:100%;height:2px;background:#fff;display:flex;align-items:center;justify-content:center;transition:all .4s ease}.menu-wrap .hamburger>div::after,.menu-wrap .hamburger>div::before{content:'';position:absolute;z-index:1;top:-10px;width:100%;height:2px;background:inherit}.menu-wrap .hamburger>div::after{top:10px}.menu-wrap .toggler:checked+.hamburger>div{transform:rotate(135deg)}.menu-wrap .toggler:checked+.hamburger>div:after,.menu-wrap .toggler:checked+.hamburger>div:before{top:0;transform:rotate(90deg)}.menu-wrap .toggler:checked:hover+.hamburger>div{transform:rotate(225deg)}.menu-wrap .toggler:checked~.menu{visibility:visible}.menu-wrap .toggler:checked~.menu>div{transform:scale(1);transition-duration:var(--menu-speed)}.menu-wrap .toggler:checked~.menu>div>div{opacity:1;transition:opacity .4s ease .4s}.menu-wrap .menu{position:fixed;top:0;right:0;width:100%;height:100%;visibility:hidden;overflow:hidden;display:flex;align-items:center;justify-content:center}.menu-wrap .menu>div{background:rgba(24,39,51,.85);border-radius:50%;width:200vw;height:200vw;display:flex;flex:none;align-items:center;justify-content:center;transform:scale(0);transition:all .4s ease}.menu-wrap .menu>div>div{text-align:center;max-width:90vw;max-height:100vh;opacity:0;transition:opacity .4s ease}.menu-wrap .menu>div>div>ul>li{list-style:none;color:#fff;font-size:1.5rem;padding:1rem}.navbt{color:inherit;text-decoration:none;transition:all .7s}.navbt:hover{font-size:larger;font-weight:700}*{text-decoration:none;margin:0}@keyframes slide-rotate-hor-top{0%{transform:translateY(0) rotateX(0)}100%{transform:translateY(-150px) rotateX(-90deg)}}@keyframes rotate-center{0%{transform:rotate(0)}100%{transform:rotate(180deg)}}@font-face{font-family:big_spaceregular;src:url(bigspace-rpkx-webfont.woff2) format('woff2'),url(bigspace-rpkx-webfont.woff) format('woff');font-weight:400;font-style:normal}@-webkit-keyframes scale-up-center{0%{-webkit-transform:scale(.5);transform:scale(.5)}100%{-webkit-transform:scale(1);transform:scale(1)}}@keyframes scale-up-center{0%{-webkit-transform:scale(.5);transform:scale(.5)}100%{-webkit-transform:scale(1);transform:scale(1)}}@-webkit-keyframes slide-in-elliptic-top-fwd{0%{-webkit-transform:translateY(-600px) rotateX(-30deg) scale(0);transform:translateY(-600px) rotateX(-30deg) scale(0);-webkit-transform-origin:50% 100%;transform-origin:50% 100%;opacity:0}100%{-webkit-transform:translateY(0) rotateX(0) scale(1);transform:translateY(0) rotateX(0) scale(1);-webkit-transform-origin:50% 1400px;transform-origin:50% 1400px;opacity:1}}@keyframes slide-in-elliptic-top-fwd{0%{-webkit-transform:translateY(-600px) rotateX(-30deg) scale(0);transform:translateY(-600px) rotateX(-30deg) scale(0);-webkit-transform-origin:50% 100%;transform-origin:50% 100%;opacity:0}100%{-webkit-transform:translateY(0) rotateX(0) scale(1);transform:translateY(0) rotateX(0) scale(1);-webkit-transform-origin:50% 1400px;transform-origin:50% 1400px;opacity:1}}.EventsPage *{transition:.5s all;transition-property:all;transition-duration:.5s;transition-timing-function:ease;transition-delay:0s}.Hackathon{font-family:azonixregular;float:left;background-color:#000;height:100vh;width:32vw;text-decoration:none;color:#fff;text-align:center;overflow:hidden}.Image1{height:100%;width:100%;opacity:0}.Hackathon:hover .Image1{opacity:1;filter:blur(3px)}.Hack{position:absolute;left:8vw;bottom:350px;color:#fff;opacity:1}.Hackathon:hover .Hack{animation:rotate-center .5s ease-in-out both;opacity:1}.HackHover{display:none;position:absolute;bottom:340px;left:8vw}.Hackathon:hover .HackHover{display:block;font-size:28px;position:absolute;bottom:340px;left:8vw;text-decoration:none}.CreateGame{font-family:arcadeclassicregular;background:#0ee7f5;background:radial-gradient(circle,#0ee7f5 0,#fff 0,#0ee7f5 100%);background-image:image('GameCreateBack.png');float:left;text-align:center;height:100vh;width:33.5vw;color:#000;overflow:hidden}.CreateGame:hover{background-color:#000}.Image2{opacity:0;height:100%;overflow:hidden;background-position:center center}.CreateGame:hover .Image2{opacity:1;filter:blur(7px);height:100%;overflow:hidden}.Create{opacity:1;position:absolute;left:38.5vw;bottom:355px;font-size:42px}.CreateGame:hover .Create{animation:slide-rotate-hor-top 1s cubic-bezier(.25,.46,.45,.94) both;opacity:0}.CreateHover{display:none;position:absolute;left:40.5vw;bottom:340px;font-size:42px}.CreateGame:hover .CreateHover{display:block}.GamePlay{font-family:big_spaceregular;background:#088c22;background:linear-gradient(0deg,#088c22 0,#758ea7 38%,#98bed6 100%);background-image:image('GamePlayBack.jpg');float:left;text-align:center;height:100vh;width:33vw;color:#000;overflow:hidden}.Image3{opacity:0}.GamePlay:hover .Image3{opacity:1;filter:blur(7px)}.Game{position:absolute;bottom:355px;left:79.5vw;font-size:35px}.GamePlay:hover .Game{-webkit-animation:scale-up-center 2s cubic-bezier(.39,.575,.565,1) both;animation:scale-up-center 2s cubic-bezier(.39,.575,.565,1) both;opacity:0}.GamePlayHover{display:none;bottom:315px;left:74.5vw;position:absolute;font-size:35px}.GamePlay:hover .GamePlayHover{display:block;-webkit-animation:slide-in-elliptic-top-fwd 1s cubic-bezier(.25,.46,.45,.94) both;animation:slide-in-elliptic-top-fwd 1s cubic-bezier(.25,.46,.45,.94) both}@media (max-width:480px) and (min-width:321px){.Hackathon{float:none;width:100vw;height:100vh;text-align:center}.GamePlay{float:none;width:100vw;height:100vh}.CreateGame{float:none;width:100vw;height:100vh}.Hack{top:50%;left:22%}.Hackathon:hover .HackHover{top:48%;left:20%}.Create{top:150%;left:12%}.CreateGame:hover .CreateHover{top:150%;left:25%}.Game{top:250%;left:37%}.GamePlay:hover .GamePlayHover{top:245%;left:16%}}@media (max-width:320px){.Hackathon{float:none;width:100vw;height:100vh;text-align:center}.GamePlay{float:none;width:100vw;height:100vh}.CreateGame{float:none;width:100vw;height:100vh}.Hack{top:50%;left:27%;font-size:20px}.Hackathon:hover .HackHover{top:48%;left:25%;font-size:20px}.Create{top:150%;left:22%;font-size:26px}.CreateGame:hover .CreateHover{top:150%;left:33%;font-size:26px}.Game{top:250%;left:40%;font-size:26px}.GamePlay:hover .GamePlayHover{top:245%;left:22%;font-size:26px}}
+    </style>
+    <link rel="stylesheet" type="text/css" href="font/event.css" />
+
+</head>
+
+<body>
+    <div class="vectus">
+        <h1>VECTUS '20</h1>
+    </div>
+    <div class="menu-wrap">
+        <input type="checkbox" class="toggler">
+        <div class="hamburger">
+            <div></div>
+        </div>
+        <div class="menu">
+            <div>
+                <div>
+                    <ul>
+                        <li><a href="home" class="navbt">Home</a></li>
+                        <li><a href="about" class="navbt">About the fest</a></li>
+                        <li><a href="events" class="navbt">Events</a></li>
+                        <li><a href="sponsor" class="navbt">Sponsors</a></li>
+                        <li><a href="dashboard" class="navbt">Dashboard</a></li>
+                        <li><a href="logout" class="navbt">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="EventsPage">
+        <a href="HackLandindg" class="HackathonGrid">
+            <div class="Hackathon">
+                <h1 class="Hack">Hackathon</h1>
+                <img class="Image1" src="https://i.imgur.com/T0Rmsys.jpg" alt="">
+                <p class="HackHover"><b>For the <br>coder in you</b></p>
+            </div>
+        </a>
+        <a href="gamecreation" class="CreateGrid">
+            <div class="CreateGame">
+                <h1 class="Create">Game Creation</h1>
+                <img class="Image2" src="https://i.imgur.com/UM7xvZR.png" alt="">
+                <p class="CreateHover">For the <br>dreamers</p>
+            </div>
+        </a>
+        <a href="gameLanding" class="GamePlayGrid">
+            <div class="GamePlay">
+                <h1 class="Game">GAMING</h1>
+                <img class="Image3" src="https://i.imgur.com/x7jnwQs.jpg" align="left" alt="">
+                <p class="GamePlayHover"><b>SHOW YOUR SKILLS<br>IN THE ULTIMATE<br>TEST</b></p>
+            </div>
+        </a>
+    </div>
+</body></html>

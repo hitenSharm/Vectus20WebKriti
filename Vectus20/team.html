@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        html {
+            box-sizing: border-box
+        }
+
+        body {
+            background-image: url(https://coolbackgrounds.io/images/backgrounds/index/ranger-4df6c1b6.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center
+        }
+
+        .misfit {
+            font-family: monospace;
+            font-size: 5rem
+        }
+
+        *,
+        :after,
+        :before {
+            box-sizing: inherit
+        }
+
+        .column {
+            float: left;
+            width: 33.3%;
+            margin-bottom: 16px;
+            padding: 0 8px
+        }
+
+        @media screen and (max-width:650px) {
+            .column {
+                width: 100%;
+                display: block
+            }
+        }
+
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2)
+        }
+
+        .container {
+            padding: 0 16px
+        }
+
+        .container::after,
+        .row::after {
+            content: "";
+            clear: both;
+            display: table
+        }
+
+        .title {
+            color: #000;
+            font-family: fantasy;
+            font-weight: 700
+        }
+
+        .button {
+            border: none;
+            outline: 0;
+            display: inline-block;
+            padding: 8px;
+            color: #fff;
+            background-color: #000;
+            text-align: center;
+            cursor: pointer;
+            width: 100%
+        }
+
+        .button:hover {
+            background-color: #555
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2 class="misfit">THE MISFITS</h2>
+
+    <br>
+<!-- STANDARD TEAM PAGE -->
+    <div class="row">
+        <div class="column">
+            <div class="card">
+
+                <img src="https://i.ytimg.com/vi/2EynlMvUmdg/maxresdefault.jpg" alt="Scuffed Lad 1"
+                    style="width:100%">
+                <div class="container">
+                    <h2>Poodiepie</h2>
+                    <p class="title">I am leader bitch</p>
+                    <p>Real name: Hiten. He is a scuffed absolut mad lad. Leader of misfits</p>
+                    <p>hiten.sharm1708@gmail.com</p>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="card">
+                <img src="https://pbs.twimg.com/profile_images/1184260866536955904/hcEmAEWs_400x400.jpg" alt="Rajjo" style="width:100%">
+                <div class="container">
+                    <h2>Rajat</h2>
+                    <p class="title">Part of misfits</p>
+                    <p>YEET!</p>
+                    <p>yeet@yeet.com</p>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="card">
+                <img src="https://www.famousbirthdays.com/faces/zuckles-image.jpg"
+                    alt="John" style="width:100%">
+                <div class="container">
+                    <h2>Our web dev bruh</h2>
+                    <p class="title">Bruh</p>
+                    <p>Real name: Ankit :( </p>
+                    <p>ankit@thotery.com</p>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

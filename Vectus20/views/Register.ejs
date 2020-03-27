@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+  <!-- <link rel="stylesheet" href="reg.css"> -->
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      font-size: 16px;
+      overflow: hidden
+    }
+
+    .vectus {
+      color: white;
+      font-family: 'Trade Winds';
+      display: inline-block;
+      position: fixed;
+      font-size: 3em;
+      margin: 10px
+    }
+    /* the navbar starts here */
+    .menu-wrap {
+      position: fixed;
+      top: 0;
+      right: 0;
+      z-index: 1
+    }
+
+    .menu-wrap .toggler {
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 2;
+      cursor: pointer;
+      width: 50px;
+      height: 50px;
+      opacity: 0
+    }
+
+    .menu-wrap .hamburger {
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 1;
+      width: 60px;
+      height: 60px;
+      padding: 1rem;
+      background: var(--primary-color);
+      display: flex;
+      align-items: center;
+      justify-content: center
+    }
+
+    .menu-wrap .hamburger>div {
+      position: relative;
+      flex: none;
+      width: 100%;
+      height: 2px;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.4s ease
+    }
+
+    .menu-wrap .hamburger>div::before,
+    .menu-wrap .hamburger>div::after {
+      content: '';
+      position: absolute;
+      z-index: 1;
+      top: -10px;
+      width: 100%;
+      height: 2px;
+      background: inherit
+    }
+
+    .menu-wrap .hamburger>div::after {
+      top: 10px
+    }
+
+    .menu-wrap .toggler:checked+.hamburger>div {
+      transform: rotate(135deg)
+    }
+
+    .menu-wrap .toggler:checked+.hamburger>div:before,
+    .menu-wrap .toggler:checked+.hamburger>div:after {
+      top: 0;
+      transform: rotate(90deg)
+    }
+
+    .menu-wrap .toggler:checked:hover+.hamburger>div {
+      transform: rotate(225deg)
+    }
+
+    .menu-wrap .toggler:checked~.menu {
+      visibility: visible
+    }
+
+    .menu-wrap .toggler:checked~.menu>div {
+      transform: scale(1);
+      transition-duration: var(--menu-speed)
+    }
+
+    .menu-wrap .toggler:checked~.menu>div>div {
+      opacity: 1;
+      transition: opacity 0.4s ease 0.4s
+    }
+
+    .menu-wrap .menu {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      visibility: hidden;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center
+    }
+
+    .menu-wrap .menu>div {
+      background: rgba(24, 39, 51, .85);
+      border-radius: 50%;
+      width: 200vw;
+      height: 200vw;
+      display: flex;
+      flex: none;
+      align-items: center;
+      justify-content: center;
+      transform: scale(0);
+      transition: all 0.4s ease
+    }
+
+    .menu-wrap .menu>div>div {
+      text-align: center;
+      max-width: 90vw;
+      max-height: 100vh;
+      opacity: 0;
+      transition: opacity 0.4s ease
+    }
+
+    .menu-wrap .menu>div>div>ul>li {
+      list-style: none;
+      color: #fff;
+      font-size: 1.5rem;
+      padding: 1rem
+    }
+
+    .navbt {
+      color: inherit;
+      text-decoration: none;
+      transition: all 0.7s
+    }
+
+    .navbt:hover {
+      font-size: larger;
+      font-weight: 700
+    }
+/* the login/register div */
+    #login {
+      width: 400px;
+      height: 600px;
+      background-color: rgba(255, 102, 255, .1);
+      position: absolute;
+      display: flex;
+      justify-content: space-around;
+      margin-top: 60px;
+      border-radius: 10%
+    }
+
+    .login1 {
+      position: relative;
+      display: block;
+      text-align: center;
+      margin: 0;
+      margin-top: 50px;
+      color: rgb(102, 255, 255);
+      font-weight: 700
+    }
+
+    .email {
+      position: relative;
+      margin-top: 50px;
+      font-size: larger;
+      font-family: 'Oxanium';
+      color: seashell;
+      margin-bottom: -2%;
+      text-align: center
+    }
+
+    input[type=email] {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      border: 3px solid #ccc;
+      border-radius: 50px;
+      -webkit-transition: 0.5s;
+      transition: 0.5s;
+      outline: none
+    }
+
+    input[type=email]:focus {
+      border: 3px solid #555
+    }
+
+    .pass {
+      position: relative;
+      margin-top: 75px;
+      font-size: larger;
+      font-family: 'Oxanium';
+      color: white;
+      margin-bottom: -2%;
+      text-align: center
+    }
+
+    input[type=password] {
+      margin: 20px;
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      border: 3px solid #ccc;
+      border-radius: 50px;
+      -webkit-transition: 0.5s;
+      transition: 0.5s;
+      outline: none
+    }
+
+    input[type=password]:focus {
+      border: 3px solid #555
+    }
+
+    .but1 {
+      display: flex;
+      justify-content: center;
+      margin: 30px
+    }
+
+    .reg {
+      position: relative;
+      font-size: larger;
+      font-family: 'Oxanium';
+      color: seashell;
+      text-align: center;
+      left: 1px;
+      text-decoration: none;
+      transition: all 0.5s
+    }
+
+    .reg:hover {
+      text-shadow: -1px -1px 0 #2DD785, 1px -1px 0 #2DD785, -1px 1px 0 #2DD785, 1px 1px 0 #2DD785;
+      -webkit-transition: all .5s;
+      -moz-transition: all .5s;
+      -o-transition: all .5s;
+      transition: all .5s
+    }
+/* the signup/login button */
+    .bttn-default {
+      color: #fff
+    }
+
+    .bttn,
+    .bttn-lg,
+    .bttn-md,
+    .bttn-primary,
+    .bttn-sm,
+    .bttn-xs {
+      color: #1d89ff
+    }
+
+    .bttn-warning {
+      color: #feab3a
+    }
+
+    .bttn-danger {
+      color: #ff5964
+    }
+
+    .bttn-success {
+      color: #28b78d
+    }
+
+    .bttn-royal {
+      color: #bd2df5
+    }
+
+    .bttn,
+    .bttn-lg,
+    .bttn-md,
+    .bttn-sm,
+    .bttn-xs {
+      margin: 0;
+      padding: 0;
+      border-width: 0;
+      border-color: transparent;
+      background: 0 0;
+      font-weight: 400;
+      cursor: pointer;
+      position: relative
+    }
+
+    .bttn-lg {
+      padding: 8px 15px;
+      font-size: 24px;
+      font-family: inherit
+    }
+
+    .bttn-md {
+      font-size: 20px;
+      font-family: inherit;
+      padding: 5px 12px
+    }
+
+    .bttn-sm {
+      padding: 4px 10px;
+      font-size: 16px;
+      font-family: inherit
+    }
+
+    .bttn-xs {
+      padding: 3px 8px;
+      font-size: 12px;
+      font-family: inherit
+    }
+
+    .bttn-unite {
+      margin: 0;
+      padding: 0;
+      border-width: 0;
+      border-color: transparent;
+      background: 0 0;
+      font-weight: 400;
+      cursor: pointer;
+      position: relative;
+      font-size: 20px;
+      font-family: inherit;
+      padding: 5px 12px;
+      z-index: 0;
+      overflow: hidden;
+      border: 1px solid #1d89ff;
+      border-radius: 100px;
+      background: #fff;
+      color: #1d89ff;
+      -webkit-transition: color .3s cubic-bezier(.02, .01, .47, 1), border-color .3s cubic-bezier(.02, .01, .47, 1);
+      transition: color .3s cubic-bezier(.02, .01, .47, 1), border-color .3s cubic-bezier(.02, .01, .47, 1)
+    }
+
+    .bttn-unite:before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 120%;
+      background: #d6e3ff;
+      content: '';
+      opacity: 0;
+      z-index: -1;
+      -webkit-transition: opacity .15s cubic-bezier(.02, .01, .47, 1), -webkit-transform .15s cubic-bezier(.02, .01, .47, 1);
+      transition: opacity .15s cubic-bezier(.02, .01, .47, 1), -webkit-transform .15s cubic-bezier(.02, .01, .47, 1);
+      transition: transform .15s cubic-bezier(.02, .01, .47, 1), opacity .15s cubic-bezier(.02, .01, .47, 1);
+      transition: transform .15s cubic-bezier(.02, .01, .47, 1), opacity .15s cubic-bezier(.02, .01, .47, 1), -webkit-transform .15s cubic-bezier(.02, .01, .47, 1);
+      -webkit-transform: translate3d(-110%, -10%, 0) skewX(-20deg);
+      transform: translate3d(-110%, -10%, 0) skewX(-20deg)
+    }
+
+    .bttn-unite:after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 120%;
+      background: rgba(214, 227, 255, .7);
+      content: '';
+      opacity: 0;
+      z-index: -1;
+      -webkit-transition: opacity .15s cubic-bezier(.02, .01, .47, 1), -webkit-transform .15s cubic-bezier(.02, .01, .47, 1);
+      transition: opacity .15s cubic-bezier(.02, .01, .47, 1), -webkit-transform .15s cubic-bezier(.02, .01, .47, 1);
+      transition: transform .15s cubic-bezier(.02, .01, .47, 1), opacity .15s cubic-bezier(.02, .01, .47, 1);
+      transition: transform .15s cubic-bezier(.02, .01, .47, 1), opacity .15s cubic-bezier(.02, .01, .47, 1), -webkit-transform .15s cubic-bezier(.02, .01, .47, 1);
+      -webkit-transform: translate3d(110%, -10%, 0) skewX(-20deg);
+      transform: translate3d(110%, -10%, 0) skewX(-20deg)
+    }
+
+    .bttn-unite:focus,
+    .bttn-unite:hover {
+      box-shadow: 0 1px 8px rgba(58, 51, 53, .3);
+      color: #1d89ff;
+      -webkit-transition: all .5s cubic-bezier(.02, .01, .47, 1);
+      transition: all .5s cubic-bezier(.02, .01, .47, 1)
+    }
+
+    .bttn-unite:focus:before,
+    .bttn-unite:hover:before {
+      opacity: 1;
+      -webkit-transition: opacity .25s cubic-bezier(.02, .01, .47, 1), -webkit-transform .25s cubic-bezier(.02, .01, .47, 1);
+      transition: opacity .25s cubic-bezier(.02, .01, .47, 1), -webkit-transform .25s cubic-bezier(.02, .01, .47, 1);
+      transition: transform .25s cubic-bezier(.02, .01, .47, 1), opacity .25s cubic-bezier(.02, .01, .47, 1);
+      transition: transform .25s cubic-bezier(.02, .01, .47, 1), opacity .25s cubic-bezier(.02, .01, .47, 1), -webkit-transform .25s cubic-bezier(.02, .01, .47, 1);
+      -webkit-transform: translate3d(-50%, -10%, 0) skewX(-20deg);
+      transform: translate3d(-50%, -10%, 0) skewX(-20deg)
+    }
+
+    .bttn-unite:focus:after,
+    .bttn-unite:hover:after {
+      opacity: 1;
+      -webkit-transition: opacity .25s cubic-bezier(.02, .01, .47, 1), -webkit-transform .25s cubic-bezier(.02, .01, .47, 1);
+      transition: opacity .25s cubic-bezier(.02, .01, .47, 1), -webkit-transform .25s cubic-bezier(.02, .01, .47, 1);
+      transition: transform .25s cubic-bezier(.02, .01, .47, 1), opacity .25s cubic-bezier(.02, .01, .47, 1);
+      transition: transform .25s cubic-bezier(.02, .01, .47, 1), opacity .25s cubic-bezier(.02, .01, .47, 1), -webkit-transform .25s cubic-bezier(.02, .01, .47, 1);
+      -webkit-transform: translate3d(50%, -10%, 0) skewX(-20deg);
+      transform: translate3d(50%, -10%, 0) skewX(-20deg)
+    }
+
+    .bttn-unite.bttn-xs {
+      padding: 3px 8px;
+      font-size: 12px;
+      font-family: inherit
+    }
+
+    .bttn-unite.bttn-xs:focus,
+    .bttn-unite.bttn-xs:hover {
+      box-shadow: 0 1px 4px rgba(58, 51, 53, .3)
+    }
+
+    .bttn-unite.bttn-sm {
+      padding: 4px 10px;
+      font-size: 16px;
+      font-family: inherit
+    }
+
+    .bttn-unite.bttn-sm:focus,
+    .bttn-unite.bttn-sm:hover {
+      box-shadow: 0 1px 6px rgba(58, 51, 53, .3)
+    }
+
+    .bttn-unite.bttn-md {
+      font-size: 20px;
+      font-family: inherit;
+      padding: 5px 12px
+    }
+
+    .bttn-unite.bttn-md:focus,
+    .bttn-unite.bttn-md:hover {
+      box-shadow: 0 1px 8px rgba(58, 51, 53, .3)
+    }
+
+    .bttn-unite.bttn-lg {
+      padding: 8px 15px;
+      font-size: 24px;
+      font-family: inherit
+    }
+
+    .bttn-unite.bttn-lg:focus,
+    .bttn-unite.bttn-lg:hover {
+      box-shadow: 0 1px 10px rgba(58, 51, 53, .3)
+    }
+
+    .bttn-unite.bttn-default {
+      border-color: #1d89ff;
+      color: #1d89ff
+    }
+
+    .bttn-unite.bttn-default:focus,
+    .bttn-unite.bttn-default:hover {
+      background: #d6e3ff;
+      color: #1d89ff
+    }
+
+    .bttn-unite.bttn-default:before {
+      background: #a7c3ff
+    }
+
+    .bttn-unite.bttn-default:after {
+      background: #d6e3ff
+    }
+
+    .bttn-unite.bttn-primary {
+      border-color: #1d89ff;
+      color: #1d89ff
+    }
+
+    .bttn-unite.bttn-primary:focus,
+    .bttn-unite.bttn-primary:hover {
+      background: #1d89ff;
+      color: #fff
+    }
+
+    .bttn-unite.bttn-primary:before {
+      background: #006de3
+    }
+
+    .bttn-unite.bttn-primary:after {
+      background: #1d89ff
+    }
+
+    .bttn-unite.bttn-warning {
+      border-color: #feab3a;
+      color: #feab3a
+    }
+
+    .bttn-unite.bttn-warning:focus,
+    .bttn-unite.bttn-warning:hover {
+      background: #feab3a;
+      color: #fff
+    }
+
+    .bttn-unite.bttn-warning:before {
+      background: #f89001
+    }
+
+    .bttn-unite.bttn-warning:after {
+      background: #feab3a
+    }
+
+    .bttn-unite.bttn-danger {
+      border-color: #ff5964;
+      color: #ff5964
+    }
+
+    .bttn-unite.bttn-danger:focus,
+    .bttn-unite.bttn-danger:hover {
+      background: #ff5964;
+      color: #fff
+    }
+
+    .bttn-unite.bttn-danger:before {
+      background: #ff1424
+    }
+
+    .bttn-unite.bttn-danger:after {
+      background: #ff5964
+    }
+
+    .bttn-unite.bttn-success {
+      border-color: #28b78d;
+      color: #28b78d
+    }
+
+    .bttn-unite.bttn-success:focus,
+    .bttn-unite.bttn-success:hover {
+      background: #28b78d;
+      color: #fff
+    }
+
+    .bttn-unite.bttn-success:before {
+      background: #209271
+    }
+
+    .bttn-unite.bttn-success:after {
+      background: #28b78d
+    }
+
+    .bttn-unite.bttn-royal {
+      border-color: #bd2df5;
+      color: #bd2df5
+    }
+
+    .bttn-unite.bttn-royal:focus,
+    .bttn-unite.bttn-royal:hover {
+      background: #bd2df5;
+      color: #fff
+    }
+
+    .bttn-unite.bttn-royal:before {
+      background: #a20bdd
+    }
+
+    .bttn-unite.bttn-royal:after {
+      background: #bd2df5
+    }
+
+    #logiPage {
+      margin: 5px
+    }
+
+/* the particlejs as background */
+    #particles-js {
+      background-image: url(https://wallpaperaccess.com/full/829012.jpg);
+      background-size: cover;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      z-index: -1;
+      overflow: hidden
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css?family=Trade+Winds&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Oxanium&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+  <div class="vectus">VECTUS '20</div>
+
+  <div class="menu-wrap">
+    <input type="checkbox" class="toggler">
+    <div class="hamburger">
+      <div></div>
+    </div>
+    <div class="menu">
+      <div>
+        <div>
+          <ul>
+            <li><a href="home" class="navbt">Home</a></li>
+            <li><a href="about" class="navbt">About the fest</a></li>
+            <li><a href="events" class="navbt">Events</a></li>
+            <li><a href="sponsor" class="navbt">sponsors</a></li>
+            <li><a href="register" class="navbt">Login/Register</a></li>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="particles-js">
+    <div id="login">
+      <form action="authReg" id="logiPage" method="POST">
+        <h1 class="login1">REGISTER</h1>
+        <p class="email">Email-Id</p><input type="email" placeholder="Email to register with" name="email"></input>
+        <p class="pass">Password</p><input type="password" placeholder="Password to register" name="password"></input>
+        <div class="but1"> <button class="bttn-unite bttn-md bttn-primary">Signup</button></div>
+        <a href="login" class="reg">Already have an account?</p>
+      </form>
+    </div>
+  </div>
+
+  <!-- the ejs -->
+  <% if (fields) { %>
+  <script>
+    alert("INVALID!!");
+  </script>
+  <% } %>
+
+  <!-- loading pariclejs -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+  <!-- the  json file was created for particlejs but node was not loading it so it was put on myjson which stores ur json files sometimes
+  it takes a bit time to load as it is online  -->
+  <script>
+    particlesJS.load('particles-js', 'https://api.myjson.com/bins/1btfik',
+      function () {
+        console.log('particles.json loaded...')
+      })
+  </script>
+</body>
+
+</html>
