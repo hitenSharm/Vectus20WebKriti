@@ -5,35 +5,225 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>logut</title>
-  
+
     <style type="text/css">
- body{padding:0;margin:0 auto;background-image:url(https://i.redd.it/t1739io3j5531.png);background-size:cover;height:100vh;display:flex;justify-content:space-around;flex-wrap:wrap;align-items:center;z-index:0;overflow:hidden}.menu-wrap{position:fixed;top:0;right:0;z-index:1}.menu-wrap .toggler{position:absolute;top:0;right:0;z-index:2;cursor:pointer;width:50px;height:50px;opacity:0}.menu-wrap .hamburger{position:absolute;top:0;right:0;z-index:1;width:60px;height:60px;padding:1rem;background:var(--primary-color);display:flex;align-items:center;justify-content:center}.menu-wrap .hamburger>div{position:relative;flex:none;width:100%;height:2px;background:#fff;display:flex;align-items:center;justify-content:center;transition:all 0.4s ease}.menu-wrap .hamburger>div::before,.menu-wrap .hamburger>div::after{content:'';position:absolute;z-index:1;top:-10px;width:100%;height:2px;background:inherit}.menu-wrap .hamburger>div::after{top:10px}.menu-wrap .toggler:checked + .hamburger>div{transform:rotate(135deg)}.menu-wrap .toggler:checked + .hamburger>div:before,.menu-wrap .toggler:checked + .hamburger>div:after{top:0;transform:rotate(90deg)}.menu-wrap .toggler:checked:hover + .hamburger>div{transform:rotate(225deg)}.menu-wrap .toggler:checked~.menu{visibility:visible}.menu-wrap .toggler:checked~.menu>div{transform:scale(1);transition-duration:var(--menu-speed)}.menu-wrap .toggler:checked~.menu>div>div{opacity:1;transition:opacity 0.4s ease 0.4s}.menu-wrap .menu{position:fixed;top:0;right:0;width:100%;height:100%;visibility:hidden;overflow:hidden;display:flex;align-items:center;justify-content:center}.menu-wrap .menu>div{background:rgba(24,39,51,.85);border-radius:50%;width:200vw;height:200vw;display:flex;flex:none;align-items:center;justify-content:center;transform:scale(0);transition:all 0.4s ease}.menu-wrap .menu>div>div{text-align:center;max-width:90vw;max-height:100vh;opacity:0;transition:opacity 0.4s ease}.menu-wrap .menu>div>div>ul>li{list-style:none;color:#fff;font-size:1.5rem;padding:1rem}.navbt{color:inherit;text-decoration:none;transition:all 0.7s}.navbt:hover{font-size:larger;font-weight:700}.forgot{margin:20px;color:#ffc;font-family:monospace}.logout{background-color:#4CAF50;border:none;color:white;padding:16px 32px;text-align:center;text-decoration:none;display:inline-block;font-size:16px;margin:4px 2px;transition-duration:0.4s;cursor:pointer;background-color:white;color:black;border:2px solid #008CBA;border-radius:45%}.logout:hover{background-color:#008CBA;color:white}@media (max-width:1366px){body{background-image:url(https://i.pinimg.com/originals/78/90/42/7890425bc5d2c9b4a7bea6ce0ce044c0.jpg)}}</style>
+        body {
+            padding: 0;
+            margin: 0 auto;
+            background-image: url(https://i.redd.it/t1739io3j5531.png);
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            align-items: center;
+            z-index: 0;
+            overflow: hidden
+        }
+
+        .menu-wrap {
+            position: fixed;
+            top: 0;
+            right: 0;
+            z-index: 1
+        }
+
+        .menu-wrap .toggler {
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 2;
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            opacity: 0
+        }
+
+        .menu-wrap .hamburger {
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 1;
+            width: 60px;
+            height: 60px;
+            padding: 1rem;
+            background: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+
+        .menu-wrap .hamburger>div {
+            position: relative;
+            flex: none;
+            width: 100%;
+            height: 2px;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s ease
+        }
+
+        .menu-wrap .hamburger>div::before,
+        .menu-wrap .hamburger>div::after {
+            content: '';
+            position: absolute;
+            z-index: 1;
+            top: -10px;
+            width: 100%;
+            height: 2px;
+            background: inherit
+        }
+
+        .menu-wrap .hamburger>div::after {
+            top: 10px
+        }
+
+        .menu-wrap .toggler:checked+.hamburger>div {
+            transform: rotate(135deg)
+        }
+
+        .menu-wrap .toggler:checked+.hamburger>div:before,
+        .menu-wrap .toggler:checked+.hamburger>div:after {
+            top: 0;
+            transform: rotate(90deg)
+        }
+
+        .menu-wrap .toggler:checked:hover+.hamburger>div {
+            transform: rotate(225deg)
+        }
+
+        .menu-wrap .toggler:checked~.menu {
+            visibility: visible
+        }
+
+        .menu-wrap .toggler:checked~.menu>div {
+            transform: scale(1);
+            transition-duration: var(--menu-speed)
+        }
+
+        .menu-wrap .toggler:checked~.menu>div>div {
+            opacity: 1;
+            transition: opacity 0.4s ease 0.4s
+        }
+
+        .menu-wrap .menu {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            visibility: hidden;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+
+        .menu-wrap .menu>div {
+            background: rgba(24, 39, 51, .85);
+            border-radius: 50%;
+            width: 200vw;
+            height: 200vw;
+            display: flex;
+            flex: none;
+            align-items: center;
+            justify-content: center;
+            transform: scale(0);
+            transition: all 0.4s ease
+        }
+
+        .menu-wrap .menu>div>div {
+            text-align: center;
+            max-width: 90vw;
+            max-height: 100vh;
+            opacity: 0;
+            transition: opacity 0.4s ease
+        }
+
+        .menu-wrap .menu>div>div>ul>li {
+            list-style: none;
+            color: #fff;
+            font-size: 1.5rem;
+            padding: 1rem
+        }
+
+        .navbt {
+            color: inherit;
+            text-decoration: none;
+            transition: all 0.7s
+        }
+
+        .navbt:hover {
+            font-size: larger;
+            font-weight: 700
+        }
+
+        .forgot {
+            margin: 20px;
+            color: #ffc;
+            font-family: monospace
+        }
+
+        .logout {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 16px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+            background-color: white;
+            color: black;
+            border: 2px solid #008CBA;
+            border-radius: 45%
+        }
+
+        .logout:hover {
+            background-color: #008CBA;
+            color: white
+        }
+
+        @media (max-width:1366px) {
+            body {
+                background-image: url(https://i.pinimg.com/originals/78/90/42/7890425bc5d2c9b4a7bea6ce0ce044c0.jpg)
+            }
+        }
+
+    </style>
 
 </head>
 
 <body>
     <div class="menu-wrap">
         <input type="checkbox" class="toggler">
-        <div class="hamburger"><div></div></div>
-        <div class="menu">
-          <div>
-            <div>
-              <ul>
-                <li><a href="home" class="navbt">Home</a></li>
-                <li><a href="about" class="navbt">About the fest</a></li>
-                <li><a href="events" class="navbt">Events</a></li>
-                <li><a href="#" class="navbt">sponsors</a></li>
-                <li><a href="dashboard" class="navbt">Dashboard</a></li>
-              </ul>
-            </div>
-          </div>
+        <div class="hamburger">
+            <div></div>
         </div>
-      </div> 
-   
+        <div class="menu">
+            <div>
+                <div>
+                    <ul>
+                        <li><a href="home" class="navbt">Home</a></li>
+                        <li><a href="about" class="navbt">About the fest</a></li>
+                        <li><a href="events" class="navbt">Events</a></li>
+                        <li><a href="#" class="navbt">sponsors</a></li>
+                        <li><a href="dashboard" class="navbt">Dashboard</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <h1 class="forgot">WUBBA LUBBA DUB DUB!!</h1>
     <form action="logoutR" method="GET">
-    <button class="logout">Logout</button>
-</form>
+        <button class="logout">Logout</button>
+    </form>
 
 
 
