@@ -50,31 +50,84 @@
             -webkit-tap-highlight-color: transparent
         }
 
-        #masking {
-            height: 100%;
-            width: 100%;
-            background: url(https://i.ibb.co/HFJ1c9V/star.png);
-            background-size: cover;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-            animation: mask 5s linear infinite
-        }
-
-        @keyframes mask {
-            0% {
-                filter: blur(1px) brightness(100%)
+            /*Sea Masking*/
+            .displacement
+            {
+                position: absolute;
+                top:0;
+                left:0;
+                margin: 0;
+                padding: 0;
+                height: 100%;
+                width: 100%;
+                background-image: url('https://i.ibb.co/KWrW03n/bg-sea-masking.png');
+                background-size: cover;
+                background-attachment: fixed;
+                background-repeat: no-repeat;
+                filter: url('#turbulence');
+                
+            }
+            /*Star Masking*/
+            #star-masking
+            {
+                position: absolute;
+                top:0;
+                left:0;
+                height: 100%;
+                width: 100%;
+                background-image: url('https://i.ibb.co/ZYjttDL/bg-star-masking.png');
+                background-attachment: fixed;
+                background-size: cover;
+                background-repeat: no-repeat;
+                animation: starmask 7s linear infinite;
+            }
+            @keyframes starmask
+            {
+                0%
+                {
+                    filter: blur(0px) brightness(0%);
+                }
+                50%
+                {
+                    filter:blur(3px) brightness(1100%) ;
+                    opacity:0.5;
+                }
+                100%
+                {
+                    transform: scale(3);
+                    filter:blur(0px) brightness(0%);
+                }
             }
 
-            50% {
-                filter: blur(5px) brightness(1000%)
+            /* Image Masking*/
+            #masking
+            {
+                height: 100%;
+                width:100%;
+                background: url('https://i.ibb.co/2Mszhm4/onlylightsmasking.png');
+                background-size:cover;
+                background-attachment: fixed;
+                background-repeat: no-repeat;
+                animation: mask 5s linear infinite;
             }
-
-            100% {
-                filter: blur(1px) brightness(100%);
-                opacity: .1
+            @keyframes mask
+            {
+                0%
+                {
+                    filter: blur(1px) brightness(100%);
+                }
+                50%
+                {
+                    filter:blur(5px) brightness(1000%);
+                    opacity:0.5;
+                }
+                100%
+                {
+                    filter:blur(1px) brightness(100%);
+                }
             }
-        }
-
+        
+        
         #logo {
             position: absolute;
             top: 35%;
@@ -781,95 +834,99 @@
 
 </head>
 
-<body onload="star()">
-    <script>
-        function star() {
-            gsap.to(".stars", {
-                duration: 5,
-                x: 400,
-                y: 400,
-                opacity: 0,
-                width: 0,
-                repeat: -1
-            });
-            gsap.to(".stars1", {
-                duration: 7,
-                x: 400,
-                y: 400,
-                opacity: 0,
-                width: 0,
-                repeat: -1
-            });
-            gsap.to(".stars2", {
-                duration: 6,
-                x: 300,
-                y: 300,
-                opacity: 0,
-                width: 0,
-                repeat: -1
-            });
-            gsap.to(".stars3", {
-                duration: 4,
-                x: 400,
-                y: 400,
-                opacity: 0,
-                width: 0,
-                repeat: -1
-            })
-        }
+    <body onload="star()" onclick="off()" >
+        <script>
 
-        function opens() {
-            var v = document.getElementById('trap1').style.visibility;
-            var myArray = ['trap1', 'trap2', 'trap3', 'trap4', 'trap5'];
+            //SHOOTING STAR
+            function star()
+            {
+                gsap.to(".stars",{duration:5,x:400,y:400,opacity:0,width:0,repeat:-1});
+                gsap.to(".stars1",{duration:7,x:400,y:400,opacity:0,width:0,repeat:-1});
+                gsap.to(".stars2",{duration:6,x:300,y:300,opacity:0,width:0,repeat:-1});
+                gsap.to(".stars3",{duration:4,x:400,y:400,opacity:0,width:0,repeat:-1});
 
-            function giveVisibility(target, info) {
-                document.getElementById(target).style.visibility = info
             }
-            if (v == "" || v == 'hidden') {
-                gsap.from("#trap2,#trap1,#trap3,#trap4,#trap5", {
-                    duration: 1,
-                    scale: 0.1,
-                    ease: "power1.inOut",
+            // SEMI-CIRCLE POP-UP (MENU) 
+            function opens()
+            {
+                var v = document.getElementById('trap1').style.visibility;
+
+                var myArray = ['trap1','trap2','trap3','trap4','trap5'];
+            
+                function giveVisibility(target,info)
+                {
+                    document.getElementById(target).style.visibility=info;
+                }
+
+
+                if(v == "" || v == 'hidden')
+                {
+                    gsap.from("#trap2,#trap1,#trap3,#trap4,#trap5", {duration: 1,scale: 0.1,ease: "power1.inOut",
                     stagger: {
                         from: "center",
                         ease: "power3.inOut"
+                        }});
+                    gsap.to("#trap1,#trap2,#trap3,#trap4,#trap5", {duration: 1,scale: 1.1,opacity:0.9,ease: "elastic.out"});
+                    
+                    for(var i = 0 ; i<myArray.length;i++)
+                    {
+                        giveVisibility(myArray[i],'visible');
                     }
-                });
-                gsap.to("#trap1,#trap2,#trap3,#trap4,#trap5", {
-                    duration: 1,
-                    scale: 1.1,
-                    opacity: 0.9,
-                    ease: "elastic.out"
-                });
-                for (var i = 0; i < myArray.length; i++) {
-                    giveVisibility(myArray[i], 'visible')
                 }
-            } else if (v == 'visible') {
-                gsap.to("#trap2,#trap1,#trap3,#trap4,#trap5", {
-                    duration: 1,
-                    scale: 0,
-                    ease: "bounce.out",
-                    onComplete: function() {
-                        for (var i = 0; i < myArray.length; i++) {
-                            giveVisibility(myArray[i], 'hidden')
+                else if(v == 'visible')
+                {
+                    gsap.to("#trap2,#trap1,#trap3,#trap4,#trap5",{duration:1,scale:0,ease:"bounce.out",onComplete:function()
+                    {
+                        for(var i = 0 ; i<myArray.length;i++)
+                        {
+                            giveVisibility(myArray[i],'hidden');
+                        }   
+                    }
+                });//on complete is used 
+                }
+            }
+            /*To off the when clicked anywhere in the screen*/
+            function off()
+            {
+                document.onclick = function(e)
+                {
+                    if(e.target.id != 'pop-up-menu')
+                    {
+                        var v = document.getElementById('trap1').style.visibility;
+                        if(v=='visible')
+                        {
+                            gsap.to("#trap2,#trap1,#trap3,#trap4,#trap5",{duration:1,scale:0,ease:"bounce.out",onComplete:function()
+                        {
+                            for(var i = 0 ; i<myArray.length;i++)
+                            {
+                                giveVisibility(myArray[i],'hidden');
+                            }   
+                        }});
                         }
                     }
-                })
+                };
             }
-        }
-        $(document).ready(function() {
-            "use strict";
-            $('#pop-up-menu').ripples({
-                interactive: !0,
-                dropRadius: 20,
-                perturbance: 0.2
-            })
-        })
 
-    </script>
-
+            // Menu Background Image Ripple Effect
+            $(document).ready(function() 
+            {
+                "use strict";
+                $('#pop-up-menu').ripples({interactive:true,dropRadius:20,perturbance:0.2});
+  
+            });
+        </script>
     <!-- Background Masking-->
     <div id='masking'></div>
+            <div class='displacement'></div><!-- For Water-->
+        <svg>
+            <filter id="turbulence" x='0' y='0' width='100%' height='100%'>
+                <feTurbulence id='sea-filter' numOctaves = '3' seed='2' baseFrequency='0.02 0.05'></feTurbulence>
+                <feDisplacementMap scale='20' in='SourceGraphic'></feDisplacementMap>
+                <animate xlink:href='#sea-filter' attributeName='baseFrequency' dur='40s' 
+                keytimes='0;0.5;1'  values="0.02 0.06;0.04 0.08;0.02 0.06" repeatCount='indefinite'></animate>
+            </filter>
+        </svg>
+        <div id='star-masking'></div>
 
     <main>
 
@@ -884,12 +941,6 @@
             <div class='before'></div>
         </div>
         <div class='stars3'>
-            <div class='before'></div>
-        </div>
-        <div class='stars4'>
-            <div class='before'></div>
-        </div>
-        <div class='stars5'>
             <div class='before'></div>
         </div>
 
