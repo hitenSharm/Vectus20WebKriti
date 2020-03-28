@@ -244,7 +244,7 @@ app.get('/dashboard/dltGamer', (req, res) => {
             }
         });
 
-        res.redirect('/home');
+        res.redirect('/dashboard');
 
     } else {
         res.sendFile(__dirname + '/dum.html');
@@ -284,7 +284,7 @@ app.get('/dashboard/dltHack', (req, res) => {
             if (results.length) {
                 console.log("did it work? asdsa");
             }
-            res.redirect('/home');
+            res.redirect('/dashboard');
         })
     } else {
         res.sendFile(__dirname + '/dum.html');
