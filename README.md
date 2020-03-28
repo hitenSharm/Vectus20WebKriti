@@ -36,3 +36,4 @@ Rajat Maheshwari
 - I used Event Listeners for window and document. The window event listener made sure that animations only played after page was loaded and the document event listener was used to display appropriate messages for confirmation of login when trying to register for an event.
 
 P.S. nodemon may not work , it did not work on my computer but feel free to try.
+Link to it working: https://drive.google.com/open?id=1NFwsAfxE7u2qtYhXLI5BtW623uv3yyTK
