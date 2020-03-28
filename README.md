@@ -5,6 +5,14 @@ TEAM :<br />
 2. Ankit Kumar
 3. Rajat Maheshwari
 
+Hiten Sharma
+-I handled the complete backend using Nodejs and mySql.
+-The login/register system has password stored in hash using bcrypt and mysql was used to create the database. All events have their individual table.
+-I also made the frontend of the Login page, Register page,Dashboard,About Vectus page and team page and the nav bar used in all pages except home page.
+-Login,register,about vectus and dashboard uses particles.js which I modified using JSON(you can see the modification on particles.json) Node.js was having some problems in rendering the particles so I uploaded my json file on the site name myJson and used the link to load the json file.
+-Dashboard also makes use of GreenSock.js to make the background of "Explore Yourself".
+-All the pages made are responsive and we also tried to make as many pages as possible viewable in landscape mode.
+
 
 Rajat Maheshwari
 - I handled frontend of the Event Page and the pages for every individual event as well as the sponsor page
