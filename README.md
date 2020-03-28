@@ -13,6 +13,20 @@ Hiten Sharma
 - Dashboard also makes use of GreenSock.js to make the background of "Explore Yourself".
 - All the pages made are responsive and we also tried to make as many pages as possible viewable in landscape mode.
 
+Ankit Kumar
+- I handled the frontend of the Home page .
+- Animations are done using:
+  1) Css -
+     i) Login/Register Button on home page.
+     ii) Glowing lights + Shining stars (using masking).
+     iii) Title of fest :- It is an SVG Image having a different path for each letter, which helps us to animate each letter differently.
+     (For creating an SVG Image Figma was used).
+  2) GreenSock(Javascript Library)
+     i) Shooting Stars
+     ii) Menu pop-up and pop-down
+  3)Using JQuery (Javascript Library)
+     i) Ripple Effect at Menu(Effect taken from :-https://github.com/sirxemic/jquery.ripples)
+
 
 Rajat Maheshwari
 - I handled frontend of the Event Page and the pages for every individual event as well as the sponsor page
