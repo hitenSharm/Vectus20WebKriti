@@ -1,4 +1,5 @@
 # Vectus20WebKriti
+Note : The site does not work anymore. Feel free to look at the youtube link to see how it worked. <br/>
 This is our WebKriti2020 project, we picked the project of Tech Fest Website<br />
 TEAM :<br />
 1. Hiten Sharma
